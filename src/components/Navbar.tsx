@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { name: 'About', href: '#about' },
@@ -16,7 +17,6 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Determine active section based on scroll position
       const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'contact'];
       let currentActive = 'hero';
 
@@ -36,8 +36,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
+    setIsMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -45,12 +50,14 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo">
           <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')}>RM</a>
         </div>
-        <ul className="navbar-links">
+
+        {/* Desktop Links */}
+        <ul className="navbar-links desktop-only">
           {navLinks.map((link) => (
             <li key={link.name}>
               <a 
@@ -63,6 +70,30 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+
+        {/* Hamburger Icon */}
+        <button className="navbar-hamburger" onClick={toggleMenu} aria-label="Toggle menu">
+          <div className="hamburger-box">
+            <div className="hamburger-inner"></div>
+          </div>
+        </button>
+
+        {/* Mobile Menu */}
+        <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
+          <ul className="mobile-menu-links">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a 
+                  href={link.href} 
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className={activeSection === link.href.slice(1) ? 'active' : ''}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <style>{`
         .navbar {
@@ -98,11 +129,15 @@ const Navbar = () => {
           font-weight: 800;
           color: var(--text-color);
           letter-spacing: -0.05em;
+          z-index: 1100;
         }
         .navbar-links {
           display: flex;
           gap: 2.5rem;
           list-style: none;
+        }
+        .navbar-links.desktop-only {
+          display: flex;
         }
         .navbar-links a {
           font-size: 0.875rem;
@@ -128,9 +163,99 @@ const Navbar = () => {
           border-radius: 2px;
         }
 
+        /* Hamburger Icon Styles */
+        .navbar-hamburger {
+          display: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 10px;
+          z-index: 1100;
+        }
+        .hamburger-box {
+          width: 24px;
+          height: 18px;
+          position: relative;
+        }
+        .hamburger-inner,
+        .hamburger-inner::before,
+        .hamburger-inner::after {
+          width: 24px;
+          height: 2px;
+          background-color: var(--text-color);
+          position: absolute;
+          transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        .hamburger-inner {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        .hamburger-inner::before {
+          content: "";
+          top: -8px;
+        }
+        .hamburger-inner::after {
+          content: "";
+          top: 8px;
+        }
+
+        /* Active Hamburger State */
+        .menu-open .hamburger-inner {
+          background-color: transparent;
+        }
+        .menu-open .hamburger-inner::before {
+          transform: translateY(8px) rotate(45deg);
+        }
+        .menu-open .hamburger-inner::after {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          z-index: 1050;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transform: translateX(100%);
+          transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .mobile-menu.open {
+          transform: translateX(0);
+        }
+        .mobile-menu-links {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2rem;
+        }
+        .mobile-menu-links a {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--text-color);
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          transition: color 0.3s ease;
+        }
+        .mobile-menu-links a:hover,
+        .mobile-menu-links a.active {
+          color: #2E5BFF;
+        }
+
         @media (max-width: 768px) {
-          .navbar-links {
-            display: none; /* Add a mobile menu later if needed */
+          .navbar-links.desktop-only {
+            display: none;
+          }
+          .navbar-hamburger {
+            display: block;
           }
         }
       `}</style>
