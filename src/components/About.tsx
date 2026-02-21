@@ -5,9 +5,7 @@ const About = () => {
     <section id="about">
       <h2>About</h2>
       <p>
-        I am a developer focused on simplicity and elegance in software design.
-        I believe that the best solutions are not just functional, but also
-        intuitive and aesthetically pleasing.
+        Structural Analyst with a distinguished background in aerospace, avionics, and automotive industry.
       </p>
       <p>
         Currently, I am exploring the intersection of design systems and modern
