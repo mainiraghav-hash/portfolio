@@ -98,7 +98,10 @@ const Projects = () => {
               )}
 
               {project.images ? (
-                <div className="fea-viewport images-grid">
+                <div 
+                  className="fea-viewport images-grid" 
+                  style={{ gridTemplateColumns: `repeat(${project.images.length}, 1fr)` }}
+                >
                   {project.images.map((img, i) => (
                     <div key={i} className="viewport-image-container">
                       <img src={img} alt={`Simulation ${i + 1}`} className="viewport-image" />
@@ -201,10 +204,10 @@ const Projects = () => {
         }
         .images-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
           gap: 1rem;
           padding: 1rem;
           width: 100%;
+          height: 100%;
         }
         .viewport-image-container {
           width: 100%;
