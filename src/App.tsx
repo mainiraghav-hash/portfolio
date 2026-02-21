@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
@@ -8,14 +9,19 @@ import Contact from './components/Contact';
 
 function App() {
   return (
-    <div className="container">
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact />
-    </div>
+    <>
+      <Navbar />
+      <div className="container">
+        <div id="hero">
+          <Hero />
+        </div>
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </div>
+    </>
   );
 }
 
