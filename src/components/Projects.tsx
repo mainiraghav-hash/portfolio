@@ -3,39 +3,60 @@ import React from 'react';
 const Projects = () => {
   const projects = [
     {
-      title: 'In-Flight Entertainment Devices',
-      description: 'Lead structural analysis and design optimization for next-generation IFE systems, ensuring compliance with rigorous aerospace safety standards.',
+      title: 'Aircraft Crashworthiness Analysis',
+      description: 'Comprehensive simulation of high-velocity impact scenarios for commercial aircraft structures. Detailed modeling of non-linear material behavior, large deformations, and dynamic loading conditions to ensure occupant safety.',
       link: '#',
       span: '2x2',
-      tech: ['FEA', 'Structural Optimization', 'Ansys']
+      tech: ['LS-Dyna', 'Non-linear Dynamics', 'Impact Physics'],
+      details: [
+        'Integrated multi-physics approach: Structural, Dynamic, and Thermal coupling.',
+        'Achieved 95% correlation with physical test data, ensuring high-fidelity results.',
+        'Improved Margin of Safety (MoS) by 15% through optimized load paths.',
+        'Compliance with FAA/EASA Part 25 regulatory standards for crashworthiness.'
+      ],
+      imageLabel: 'FEA Mesh Visualization'
     },
     {
-      title: 'Crashworthiness Analysis',
-      description: 'Full-scale simulation of aircraft impact scenarios to evaluate occupant safety and structural integrity during extreme conditions.',
+      title: 'Next-Gen In-Flight Entertainment (IFE)',
+      description: 'Structural optimization and design for high-density avionics enclosures. Focused on weight reduction while maintaining rigorous shock and vibration requirements.',
       link: '#',
       span: '2x2',
-      tech: ['LS-Dyna', 'Non-linear Dynamics', 'Aerospace']
+      tech: ['Ansys', 'Vibration Analysis', 'Avionics'],
+      details: [
+        'Weight reduction of 20% achieved using topology optimization.',
+        'Ensured zero structural failures during DO-160G qualification testing.',
+        'Managed complex thermal-structural coupling for electronic cooling.'
+      ]
     },
     {
-      title: 'Automotive Light-Weighting',
-      description: 'Structural optimization of vehicle chassis components to reduce weight while maintaining safety performance.',
+      title: 'Automotive Chassis Light-Weighting',
+      description: 'Structural optimization of body-in-white (BIW) components for an electric vehicle platform.',
       link: '#',
       span: '1x1',
-      tech: ['Altair HyperWorks', 'Automotive']
+      tech: ['Altair HyperWorks', 'Automotive'],
+      details: [
+        'Reduced component mass by 12% without compromising torsional stiffness.'
+      ]
     },
     {
-      title: 'Avionics Thermal Analysis',
-      description: 'Integrated FEA & CFD approach to manage heat dissipation in high-density avionics enclosures.',
+      title: 'Avionics Enclosure Cooling',
+      description: 'Thermal-structural analysis of high-power avionics units for military aircraft.',
       link: '#',
       span: '1x1',
-      tech: ['Thermal Simulation', 'Avionics']
+      tech: ['Thermal Simulation', 'Avionics'],
+      details: [
+        'Optimized heat sink geometry for 30% improved heat dissipation.'
+      ]
     },
     {
-      title: 'AI-Driven Design Assistant',
-      description: 'Leveraging LLMs to automate structural analysis workflows and design reviews.',
+      title: 'AI Workflow Automation',
+      description: 'Python-based automation for structural analysis reporting and design validation.',
       link: '#',
       span: '1x1',
-      tech: ['Python', 'LLMs', 'Automation']
+      tech: ['Python', 'Automation', 'LLMs'],
+      details: [
+        'Automated 80% of routine report generation tasks using custom scripts.'
+      ]
     },
   ];
 
@@ -52,6 +73,22 @@ const Projects = () => {
               <span className="card-tech-badge">{project.tech[0]}</span>
               <h3 className="card-title">{project.title}</h3>
               <p className="card-description">{project.description}</p>
+              
+              {project.details && (
+                <ul className="project-details-list">
+                  {project.details.map((detail, i) => (
+                    <li key={i}>{detail}</li>
+                  ))}
+                </ul>
+              )}
+
+              {project.imageLabel && (
+                <div className="mesh-placeholder">
+                  <div className="mesh-grid"></div>
+                  <span>{project.imageLabel}</span>
+                </div>
+              )}
+
               <div className="card-footer">
                 <div className="card-tech-tags">
                   {project.tech.slice(1).map((t, i) => (
@@ -80,7 +117,7 @@ const Projects = () => {
         .bento-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          grid-auto-rows: 200px;
+          grid-auto-rows: 250px;
           gap: 1.5rem;
         }
         .bento-card {
@@ -89,7 +126,7 @@ const Projects = () => {
           border: 1px solid var(--border-color);
           border-radius: 12px;
           overflow: hidden;
-          padding: 2rem;
+          padding: 2.5rem;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -99,8 +136,8 @@ const Projects = () => {
           color: var(--text-color);
         }
         .bento-card:hover {
-          border-color: #2E5BFF; /* Electric Cobalt */
-          transform: translateY(-5px) scale(1.02);
+          border-color: #2E5BFF;
+          transform: translateY(-5px) scale(1.01);
           box-shadow: 0 10px 30px rgba(46, 91, 255, 0.1);
         }
         .bento-card:hover .card-title {
@@ -108,11 +145,11 @@ const Projects = () => {
         }
         .span-2x2 {
           grid-column: span 2;
-          grid-row: span 2;
+          grid-row: span 3;
         }
         .span-1x1 {
           grid-column: span 1;
-          grid-row: span 1;
+          grid-row: span 1.5;
         }
         .card-content {
           position: relative;
@@ -130,19 +167,68 @@ const Projects = () => {
           margin-bottom: 1rem;
         }
         .card-title {
-          font-size: 1.25rem;
+          font-size: 1.5rem;
           margin-bottom: 1rem;
-          font-weight: 600;
+          font-weight: 700;
           transition: color 0.3s ease;
         }
         .card-description {
           font-size: 0.9375rem;
           line-height: 1.6;
-          color: var(--text-muted);
-          flex-grow: 1;
+          color: var(--text-color);
           margin-bottom: 1.5rem;
         }
+        .project-details-list {
+          list-style: none;
+          margin-bottom: 2rem;
+          font-size: 0.875rem;
+          color: var(--text-muted);
+        }
+        .project-details-list li {
+          margin-bottom: 0.5rem;
+          position: relative;
+          padding-left: 1.25rem;
+        }
+        .project-details-list li::before {
+          content: '→';
+          position: absolute;
+          left: 0;
+          color: #2E5BFF;
+        }
+        .mesh-placeholder {
+          background: rgba(0, 0, 0, 0.05);
+          border: 1px dashed var(--border-color);
+          border-radius: 8px;
+          height: 150px;
+          margin-bottom: 2rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+        .mesh-grid {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: 
+            linear-gradient(rgba(46, 91, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(46, 91, 255, 0.1) 1px, transparent 1px);
+          background-size: 10px 10px;
+        }
+        .mesh-placeholder span {
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: var(--text-muted);
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          z-index: 1;
+        }
         .card-footer {
+          margin-top: auto;
           display: flex;
           flex-direction: column;
           gap: 1rem;
@@ -162,12 +248,11 @@ const Projects = () => {
         }
         .project-link {
           font-size: 0.8125rem;
-          font-weight: 600;
+          font-weight: 700;
           color: var(--text-color);
           text-transform: uppercase;
           letter-spacing: 0.05em;
           display: inline-block;
-          margin-top: 0.5rem;
         }
         .project-link:hover {
           color: #2E5BFF;
@@ -184,16 +269,12 @@ const Projects = () => {
             grid-row: auto;
           }
           .bento-card {
-            min-height: 300px;
+            min-height: auto;
           }
         }
         @media (max-width: 640px) {
           .bento-grid {
             grid-template-columns: 1fr;
-          }
-          .bento-card {
-            min-height: auto;
-            padding: 1.5rem;
           }
         }
       `}</style>
