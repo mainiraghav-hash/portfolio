@@ -1,7 +1,18 @@
 import React from 'react';
 
+interface Project {
+  title: string;
+  description: string;
+  link: string;
+  span: string;
+  tech: string[];
+  details?: string[];
+  imageLabel?: string;
+  images?: string[];
+}
+
 const Projects = () => {
-  const projects = [
+  const projects: Project[] = [
     {
       title: 'Converix Platform Server',
       description: 'Next-generation onboard compute solution designed for modern aviation. Focused on high-fidelity structural analysis for critical SSD/RAM module retention and metallic sub-assemblies.',
