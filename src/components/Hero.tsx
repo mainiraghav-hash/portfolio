@@ -5,7 +5,7 @@ const Hero = () => {
     <section className="hero">
       <h1>Raghav Maini</h1>
       <p style={{ fontSize: '1.25rem', color: 'var(--text-color)' }}>
-        Structural Analyst crafting clean and impactful digital experiences.
+        Lead Structural Analyst specializing in FEA and complex design initiatives for aerospace, avionics, and automotive industries.
       </p>
     </section>
   );

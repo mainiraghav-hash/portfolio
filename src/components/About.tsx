@@ -5,12 +5,22 @@ const About = () => {
     <section id="about">
       <h2>About</h2>
       <p>
-        Structural Analyst with a distinguished background in aerospace, avionics, and automotive industry.
+        Lead Structural Analyst with a distinguished background in aerospace, avionics, and automotive industry.
       </p>
-      <p>
-        Currently, I am exploring the intersection of design systems and modern
-        web technologies to build more resilient and performant applications.
-      </p>
+      <ul className="summary-list">
+        <li>Expert in accelerating product development cycles by integrating cutting-edge Finite Element Analysis (FEA) with conventional analytical methods to support complex design initiatives.</li>
+        <li>Proven success in leading high-stakes projects, such as analysis of industry leading In-Flight Entertainment devices and full-scale Crashworthiness analysis of aircraft.</li>
+      </ul>
+      <style>{`
+        .summary-list {
+          list-style: disc;
+          margin-left: 1.5rem;
+          color: var(--text-muted);
+        }
+        .summary-list li {
+          margin-bottom: 0.75rem;
+        }
+      `}</style>
     </section>
   );
 };
