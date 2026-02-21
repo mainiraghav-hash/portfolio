@@ -4,15 +4,15 @@ const Skills = () => {
   const skillCategories = [
     {
       title: 'Structural Analysis & CAE',
-      skills: ['Ansys', 'LS-Dyna', 'Altair HyperWorks', 'FEA', 'Non-linear Dynamics', 'Crashworthiness Analysis', 'Structural Optimization']
+      skills: ['Ansys', 'LS-Dyna', 'Altair HyperWorks', 'FEA', 'Non-linear Dynamics', 'Crashworthiness Analysis', 'Structural Optimization', 'Modal & Vibration Analysis', 'Fatigue & Fracture Mechanics', 'Thermal-Structural Coupling']
     },
     {
       title: 'Programming & Data',
-      skills: ['Python', 'Large Language Models', 'Data Analysis', 'Automation Scripts']
+      skills: ['Python', 'Large Language Models', 'Data Analysis', 'Automation Scripts', 'Version Control (Git)']
     },
     {
-      title: 'Industry Expertise',
-      skills: ['Aerospace Engineering', 'Avionics', 'Automotive Engineering', 'Product Development Lifecycle']
+      title: 'Industry & Design',
+      skills: ['Aerospace Engineering', 'Avionics', 'Automotive Engineering', 'Product Development Lifecycle', 'Technical Documentation', 'Design Reviews']
     }
   ];
 
@@ -61,8 +61,10 @@ const Skills = () => {
           transition: var(--transition);
         }
         .skill-tag:hover {
-          border-color: var(--text-color);
-          color: var(--text-color);
+          border-color: #2E5BFF;
+          color: #2E5BFF;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 10px rgba(46, 91, 255, 0.1);
         }
       `}</style>
     </section>
