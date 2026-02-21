@@ -6,7 +6,7 @@ const Contact = () => {
       <h2>Contact</h2>
       <div className="contact-links">
         <a href="mailto:hello@raghavmaini.dev">Email</a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/mainiraghav-hash" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/raghav-maini/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
       <style>{`
