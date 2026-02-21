@@ -38,7 +38,9 @@ const Projects = () => {
         'Validated dynamic impact characteristics for 100+ unique monitor configurations.',
         'Contributed to the development of SAE ARP6330A and AIR6908A standards.',
         'Performed modal, harmonic, and random vibration analysis for global deployment.'
-      ]
+      ],
+      imageLabel: 'Astrova IFE Simulation',
+      images: ['/images/astrova-1.png', '/images/astrova-2.png', '/images/astrova-3.png']
     },
     {
       title: 'Aircraft Seat Survivability',
@@ -199,7 +201,7 @@ const Projects = () => {
         }
         .images-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
           gap: 1rem;
           padding: 1rem;
           width: 100%;
