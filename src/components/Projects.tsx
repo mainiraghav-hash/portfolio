@@ -14,7 +14,8 @@ const Projects = () => {
         'Conducted advanced non-linear simulations for SSD/RAM retention integrity.',
         'Supporting Airbus "Connected Aircraft" vision via strategic partnership.'
       ],
-      imageLabel: 'Converix Platform Simulation'
+      imageLabel: 'Converix Platform Simulation',
+      images: ['/images/converix-1.png', '/images/converix-2.png']
     },
     {
       title: 'Astrova IFE System',
@@ -64,144 +65,120 @@ const Projects = () => {
   return (
     <section id="projects" className="projects-section">
       <h2 className="section-title">Key Projects</h2>
-      <div className="bento-grid">
+      <div className="projects-grid">
         {projects.map((project, index) => (
           <div 
             key={index} 
-            className={`bento-card ${project.span === '2x2' ? 'span-2x2' : 'span-1x1'}`}
+            className={`project-card tech-border ${project.span === '2x2' ? 'span-2x2' : 'span-1x1'}`}
           >
-            <div className="card-content">
-              <span className="card-tech-badge">{project.tech[0]}</span>
-              <h3 className="card-title">{project.title}</h3>
-              <p className="card-description">{project.description}</p>
+            <div className="project-content">
+              <span className="mono tech-badge highlight-text">{project.tech[0]}</span>
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-description">{project.description}</p>
               
               {project.details && (
-                <ul className="project-details-list">
+                <ul className="details-list">
                   {project.details.map((detail, i) => (
                     <li key={i}>{detail}</li>
                   ))}
                 </ul>
               )}
 
-              {project.imageLabel && (
-                <div className="mesh-placeholder">
-                  <div className="mesh-grid"></div>
-                  <span>{project.imageLabel}</span>
+              {project.images ? (
+                <div className="fea-viewport images-grid">
+                  {project.images.map((img, i) => (
+                    <div key={i} className="viewport-image-container">
+                      <img src={img} alt={`Simulation ${i + 1}`} className="viewport-image" />
+                    </div>
+                  ))}
+                </div>
+              ) : project.imageLabel && (
+                <div className="fea-viewport">
+                  <div className="viewport-grid"></div>
+                  <span className="mono viewport-label">{project.imageLabel}</span>
                 </div>
               )}
 
-              <div className="card-footer">
-                <div className="card-tech-tags">
+              <div className="project-footer">
+                <div className="tech-tags">
                   {project.tech.slice(1).map((t, i) => (
-                    <span key={i} className="tech-tag">{t}</span>
+                    <span key={i} className="tech-tag mono">{t}</span>
                   ))}
                 </div>
-                <a href={project.link} className="project-link">View Case Study →</a>
+                <a href={project.link} className="project-link mono">DATA_REPORT_01 →</a>
               </div>
             </div>
-            <div className="card-glass-overlay"></div>
           </div>
         ))}
       </div>
       <style>{`
         .projects-section {
           padding: 6rem 0;
-          background-color: var(--bg-color);
         }
-        .section-title {
-          margin-bottom: 3rem;
-          color: var(--text-color);
-          font-size: 1.5rem;
-          text-transform: uppercase;
-          letter-spacing: 0.2em;
-        }
-        .bento-grid {
+        .projects-grid {
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          grid-auto-rows: 250px;
-          gap: 1.5rem;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
         }
-        .bento-card {
-          position: relative;
-          background: rgba(0, 0, 0, 0.02);
+        .project-card {
+          background: var(--bg-color);
           border: 1px solid var(--border-color);
-          border-radius: 12px;
-          overflow: hidden;
+          border-radius: 4px;
           padding: 2.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          color: var(--text-color);
+          transition: var(--transition);
         }
-        .bento-card:hover {
-          border-color: #2E5BFF;
-          transform: translateY(-5px) scale(1.01);
-          box-shadow: 0 10px 30px rgba(46, 91, 255, 0.1);
-        }
-        .bento-card:hover .card-title {
-          color: #2E5BFF;
+        .project-card:hover {
+          border-color: var(--accent-color);
+          transform: translateY(-4px);
         }
         .span-2x2 {
           grid-column: span 2;
-          grid-row: span 3;
         }
-        .span-1x1 {
-          grid-column: span 1;
-          grid-row: span 1.5;
-        }
-        .card-content {
-          position: relative;
-          z-index: 2;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-        }
-        .card-tech-badge {
+        .tech-badge {
           font-size: 0.75rem;
-          color: #2E5BFF;
           font-weight: 700;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          margin-bottom: 1rem;
-        }
-        .card-title {
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
-          font-weight: 700;
-          transition: color 0.3s ease;
-        }
-        .card-description {
-          font-size: 0.9375rem;
-          line-height: 1.6;
-          color: var(--text-color);
           margin-bottom: 1.5rem;
+          display: block;
         }
-        .project-details-list {
-          list-style: none;
+        .project-title {
+          font-size: 1.75rem;
+          margin-bottom: 1rem;
+          font-weight: 800;
+          letter-spacing: -0.04em;
+        }
+        .project-description {
+          font-size: 1rem;
+          line-height: 1.6;
+          color: var(--text-primary);
           margin-bottom: 2rem;
-          font-size: 0.875rem;
+          font-weight: 500;
+        }
+        .details-list {
+          list-style: none;
+          margin-bottom: 2.5rem;
+          font-size: 0.9375rem;
           color: var(--text-muted);
         }
-        .project-details-list li {
-          margin-bottom: 0.5rem;
+        .details-list li {
+          margin-bottom: 0.75rem;
           position: relative;
-          padding-left: 1.25rem;
+          padding-left: 1.5rem;
         }
-        .project-details-list li::before {
-          content: '→';
+        .details-list li::before {
+          content: '↳';
           position: absolute;
           left: 0;
-          color: #2E5BFF;
+          color: var(--accent-color);
+          font-weight: 800;
         }
-        .mesh-placeholder {
-          background: rgba(0, 0, 0, 0.05);
-          border: 1px dashed var(--border-color);
-          border-radius: 8px;
-          height: 150px;
-          margin-bottom: 2rem;
+        .fea-viewport {
+          background: var(--bg-color);
+          border: 1px solid var(--border-color);
+          border-radius: 4px;
+          height: 280px;
+          margin-bottom: 2.5rem;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -209,73 +186,97 @@ const Projects = () => {
           position: relative;
           overflow: hidden;
         }
-        .mesh-grid {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-image: 
-            linear-gradient(rgba(46, 91, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(46, 91, 255, 0.1) 1px, transparent 1px);
-          background-size: 10px 10px;
+        .images-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+          padding: 1rem;
+          width: 100%;
         }
-        .mesh-placeholder span {
-          font-size: 0.75rem;
-          font-weight: 600;
-          color: var(--text-muted);
+        .viewport-image-container {
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          background: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .viewport-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 2px;
+        }
+        .viewport-label.overlay {
+          position: absolute;
+          bottom: 12px;
+          left: 12px;
+          background: rgba(248, 250, 252, 0.9);
+          color: var(--text-primary);
+          padding: 4px 8px;
+          border: 1px solid var(--border-color);
+          pointer-events: none;
+          font-size: 0.65rem;
+        }
+        .viewport-grid {
+          position: absolute;
+          top: 0; left: 0; right: 0; bottom: 0;
+          background-image: 
+            linear-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+          background-size: 20px 20px;
+        }
+        .viewport-label {
+          font-size: 0.7rem;
+          font-weight: 700;
+          color: #38BDF8;
           text-transform: uppercase;
-          letter-spacing: 0.1em;
+          letter-spacing: 0.2em;
           z-index: 1;
         }
-        .card-footer {
+        .project-footer {
           margin-top: auto;
           display: flex;
-          flex-direction: column;
-          gap: 1rem;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 2rem;
+          border-top: 1px solid var(--border-color);
         }
-        .card-tech-tags {
+        .tech-tags {
           display: flex;
           flex-wrap: wrap;
-          gap: 0.5rem;
+          gap: 0.75rem;
         }
         .tech-tag {
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           padding: 0.25rem 0.6rem;
-          background: rgba(0, 0, 0, 0.05);
+          background: var(--bg-color);
           border: 1px solid var(--border-color);
-          border-radius: 4px;
+          border-radius: 2px;
           color: var(--text-muted);
+          font-weight: 600;
         }
         .project-link {
-          font-size: 0.8125rem;
+          font-size: 0.75rem;
           font-weight: 700;
-          color: var(--text-color);
-          text-transform: uppercase;
+          color: var(--highlight-color);
           letter-spacing: 0.05em;
-          display: inline-block;
         }
-        .project-link:hover {
-          color: #2E5BFF;
+        .highlight-text {
+          color: var(--highlight-color);
         }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-          .bento-grid {
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: auto;
-          }
-          .span-2x2, .span-1x1 {
-            grid-column: span 1;
-            grid-row: auto;
-          }
-          .bento-card {
-            min-height: auto;
-          }
-        }
-        @media (max-width: 640px) {
-          .bento-grid {
+        @media (max-width: 768px) {
+          .projects-grid {
             grid-template-columns: 1fr;
+          }
+          .span-2x2 {
+            grid-column: span 1;
+          }
+          .project-footer {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
           }
         }
       `}</style>

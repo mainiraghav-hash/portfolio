@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
+    { name: 'Professional Summary', href: '#about' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
@@ -24,7 +24,7 @@ const Navbar = () => {
         const element = document.getElementById(sectionId);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 100) {
+          if (rect.top <= 120) {
             currentActive = sectionId;
           }
         }
@@ -45,19 +45,26 @@ const Navbar = () => {
     setIsMenuOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const topOffset = 100;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
       <div className="navbar-container">
-        <div className="navbar-logo">
+        <div className="navbar-logo mono">
           <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')}>RM</a>
         </div>
 
         {/* Desktop Links */}
-        <ul className="navbar-links desktop-only">
+        <ul className="navbar-links desktop-only mono">
           {navLinks.map((link) => (
             <li key={link.name}>
               <a 
@@ -80,7 +87,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         <div className={`mobile-menu ${isMenuOpen ? 'open' : ''}`}>
-          <ul className="mobile-menu-links">
+          <ul className="mobile-menu-links mono">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a 
@@ -107,14 +114,14 @@ const Navbar = () => {
           z-index: 1000;
           transition: all 0.3s ease;
           padding: 0 2rem;
+          background: transparent;
         }
         .navbar.scrolled {
-          height: 60px;
-          background: rgba(255, 255, 255, 0.8);
+          height: 64px;
+          background: rgba(248, 250, 252, 0.95);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+          border-bottom: 1px solid var(--border-color);
         }
         .navbar-container {
           max-width: 1200px;
@@ -125,23 +132,20 @@ const Navbar = () => {
           align-items: center;
         }
         .navbar-logo a {
-          font-size: 1.5rem;
+          font-size: 0.8125rem;
           font-weight: 800;
-          color: var(--text-color);
-          letter-spacing: -0.05em;
+          color: var(--text-primary);
+          letter-spacing: 0.1em;
           z-index: 1100;
         }
         .navbar-links {
           display: flex;
-          gap: 2.5rem;
+          gap: 2rem;
           list-style: none;
         }
-        .navbar-links.desktop-only {
-          display: flex;
-        }
         .navbar-links a {
-          font-size: 0.875rem;
-          font-weight: 600;
+          font-size: 0.75rem;
+          font-weight: 700;
           color: var(--text-muted);
           text-transform: uppercase;
           letter-spacing: 0.1em;
@@ -150,20 +154,16 @@ const Navbar = () => {
         }
         .navbar-links a:hover,
         .navbar-links a.active {
-          color: #2E5BFF;
+          color: var(--accent-color);
         }
         .navbar-links a.active::after {
-          content: '';
+          content: ' ●';
           position: absolute;
-          bottom: -4px;
-          left: 0;
-          width: 100%;
-          height: 2px;
-          background: #2E5BFF;
-          border-radius: 2px;
+          right: -8px;
+          font-size: 8px;
+          top: 0;
         }
 
-        /* Hamburger Icon Styles */
         .navbar-hamburger {
           display: none;
           background: none;
@@ -182,7 +182,7 @@ const Navbar = () => {
         .hamburger-inner::after {
           width: 24px;
           height: 2px;
-          background-color: var(--text-color);
+          background-color: var(--text-primary);
           position: absolute;
           transition: transform 0.15s ease, background-color 0.15s ease;
         }
@@ -199,7 +199,6 @@ const Navbar = () => {
           top: 8px;
         }
 
-        /* Active Hamburger State */
         .menu-open .hamburger-inner {
           background-color: transparent;
         }
@@ -210,16 +209,13 @@ const Navbar = () => {
           transform: translateY(-8px) rotate(-45deg);
         }
 
-        /* Mobile Menu Styles */
         .mobile-menu {
           position: fixed;
           top: 0;
           left: 0;
           width: 100%;
           height: 100vh;
-          background: rgba(255, 255, 255, 0.98);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
+          background: var(--bg-color);
           z-index: 1050;
           display: flex;
           justify-content: center;
@@ -238,16 +234,16 @@ const Navbar = () => {
           gap: 2rem;
         }
         .mobile-menu-links a {
-          font-size: 1.5rem;
+          font-size: 1.25rem;
           font-weight: 700;
-          color: var(--text-color);
+          color: var(--text-primary);
           text-transform: uppercase;
           letter-spacing: 0.15em;
           transition: color 0.3s ease;
         }
         .mobile-menu-links a:hover,
         .mobile-menu-links a.active {
-          color: #2E5BFF;
+          color: var(--accent-color);
         }
 
         @media (max-width: 768px) {

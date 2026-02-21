@@ -17,15 +17,15 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills">
-      <h2>Skills</h2>
-      <div className="skills-container">
+    <section id="skills" className="skills-section">
+      <h2 className="section-title">Technical Expertise</h2>
+      <div className="skills-grid">
         {skillCategories.map((category, index) => (
-          <div key={index} className="skill-category">
-            <h3>{category.title}</h3>
+          <div key={index} className="skill-category tech-border">
+            <h3 className="category-title">{category.title}</h3>
             <ul className="skills-list">
               {category.skills.map((skill, i) => (
-                <li key={i} className="skill-tag">
+                <li key={i} className="skill-tag mono">
                   {skill}
                 </li>
               ))}
@@ -34,37 +34,60 @@ const Skills = () => {
         ))}
       </div>
       <style>{`
-        .skills-container {
-          display: flex;
-          flex-direction: column;
-          gap: 2rem;
+        .skills-section {
+          padding: 4rem 0;
         }
-        .skill-category h3 {
-          font-size: 1rem;
-          color: var(--text-color);
-          margin-bottom: 1rem;
+        .skills-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1.5rem;
+          margin-top: 2rem;
+        }
+        .skill-category {
+          padding: 2rem;
+          background: var(--bg-color);
+          border: 1px solid var(--border-color);
+          border-radius: 4px;
+        }
+        .skill-category:nth-child(1) {
+          grid-column: span 2;
+        }
+        .category-title {
+          font-size: 0.875rem;
+          color: var(--accent-color);
+          margin-bottom: 2rem;
           text-transform: uppercase;
-          letter-spacing: 0.05em;
+          letter-spacing: 0.15em;
+          font-weight: 800;
         }
         .skills-list {
           display: flex;
           flex-wrap: wrap;
           gap: 0.75rem;
+          list-style: none;
         }
         .skill-tag {
-          font-size: 0.875rem;
+          font-size: 0.8125rem;
           padding: 0.5rem 1rem;
           background-color: var(--bg-color);
           border: 1px solid var(--border-color);
-          border-radius: 4px;
-          color: var(--text-muted);
+          border-radius: 2px;
+          color: var(--text-primary);
           transition: var(--transition);
+          font-weight: 500;
         }
         .skill-tag:hover {
-          border-color: #2E5BFF;
-          color: #2E5BFF;
-          transform: translateY(-2px);
-          box-shadow: 0 4px 10px rgba(46, 91, 255, 0.1);
+          border-color: var(--accent-color);
+          color: var(--accent-color);
+          background: rgba(2, 132, 199, 0.05);
+        }
+        @media (max-width: 768px) {
+          .skills-grid {
+            grid-template-columns: 1fr;
+          }
+          .skill-category:nth-child(1) {
+            grid-column: span 1;
+          }
         }
       `}</style>
     </section>
