@@ -3,28 +3,44 @@ import React, { useEffect, useRef, useState } from 'react';
 const Experience = () => {
   const experiences = [
     {
-      company: 'Tech Innovators Inc.',
-      role: 'Lead Structural Analyst',
-      period: 'Jan 2023 - Present',
-      description: 'Leading the development of high-performance analytics dashboards, focusing on user experience and real-time data visualization.',
-      impact: 'Reduced load times by 40% through code splitting and efficient state management.',
-      metrics: ['40% Reduction in Load Times', 'Team of 15+ Developers']
+      company: 'Panasonic Avionics Corporation',
+      role: 'Senior Staff Structural Analyst, Level 4',
+      period: 'Jun 2024 - Present',
+      description: 'Led structural analysis for the Converix platform server, a next-generation onboard compute solution designed for modern aviation.',
+      impact: 'Optimized SSD/RAM module retention components and metallic sub-assemblies using Ansys suite to ensure product certification (RTCA DO-160G).',
+      metrics: ['RTCA DO-160G Certification', 'Mentored Junior Engineers']
     },
     {
-      company: 'Creative Solutions Agency',
-      role: 'Senior Structural Engineer',
-      period: 'Jun 2021 - Dec 2022',
-      description: 'Developed and maintained various client-facing web applications using React, Node.js, and PostgreSQL.',
-      impact: 'Architected a custom CMS that improved content update efficiency by 50%.',
-      metrics: ['50% Efficiency Gain', '99.9% System Uptime']
+      company: 'Panasonic Avionics Corporation',
+      role: 'Staff Structural Analyst, Level 3',
+      period: 'Jun 2022 - Jun 2024',
+      description: 'Led structural analysis for Astrova, industry-leading in-flight entertainment system, selected by over 30 airlines for 100+ unique programs.',
+      impact: 'Performed complex dynamic impact (LS-Dyna) and vibration analysis (Ansys) while contributing to SAE ARP6330A and AIR6908A industry standards.',
+      metrics: ['30+ Airlines Supported', 'SAE Document Contributor']
     },
     {
-      company: 'StartUp Hub',
-      role: 'Junior Structural Analyst',
-      period: 'Aug 2020 - May 2021',
-      description: 'Assisted in building responsive landing pages and internal tools for a growing startup ecosystem.',
-      impact: 'Optimized mobile responsiveness for multiple high-traffic websites.',
-      metrics: ['Mobile traffic increased by 25%', 'Fastest onboarding award']
+      company: 'Panasonic Avionics Corporation',
+      role: 'Staff Structural Analyst, Level 2',
+      period: 'Mar 2019 - Jun 2022',
+      description: 'Designed and executed specific test plans for dynamic impact of in-flight entertainment monitors from concept to certification.',
+      impact: 'Conducted comprehensive structural testing (Head Component, Tensile, Compressive) and FEA activities including random vibration and harmonic analysis.',
+      metrics: ['Full Lifecycle Certification', 'Specialized Structural Testing']
+    },
+    {
+      company: 'National Institute for Aviation Research (NIAR)',
+      role: 'Research Associate',
+      period: 'Jan 2018 - Mar 2019',
+      description: 'Led a CAE team overseeing model generation and running non-linear dynamic simulations for full assembly models.',
+      impact: 'Generated FE models of aircraft seats conforming to FAR 25.562 emergency landing regulations for occupant survivability studies.',
+      metrics: ['CAE Team Lead', 'FAR 25.562 Compliance']
+    },
+    {
+      company: 'National Institute for Aviation Research (NIAR)',
+      role: 'Graduate Research Assistant',
+      period: 'Apr 2016 - Dec 2017',
+      description: 'Performed linear and non-linear simulations using explicit and implicit solvers for component and assembly-level structures.',
+      impact: 'Analyzed structural integrity of complex aerospace components through high-fidelity FEA modeling.',
+      metrics: ['Explicit/Implicit Solvers', 'Assembly-level Analysis']
     },
   ];
 

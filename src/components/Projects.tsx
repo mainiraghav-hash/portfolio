@@ -3,59 +3,60 @@ import React from 'react';
 const Projects = () => {
   const projects = [
     {
-      title: 'Aircraft Crashworthiness Analysis',
-      description: 'Comprehensive simulation of high-velocity impact scenarios for commercial aircraft structures. Detailed modeling of non-linear material behavior, large deformations, and dynamic loading conditions to ensure occupant safety.',
+      title: 'Converix Platform Server',
+      description: 'Next-generation onboard compute solution designed for modern aviation. Focused on high-fidelity structural analysis for critical SSD/RAM module retention and metallic sub-assemblies.',
       link: '#',
       span: '2x2',
-      tech: ['LS-Dyna', 'Non-linear Dynamics', 'Impact Physics'],
+      tech: ['Ansys', 'RTCA DO-160G', 'Module Retention'],
       details: [
-        'Integrated multi-physics approach: Structural, Dynamic, and Thermal coupling.',
-        'Achieved 95% correlation with physical test data, ensuring high-fidelity results.',
-        'Improved Margin of Safety (MoS) by 15% through optimized load paths.',
-        'Compliance with FAA/EASA Part 25 regulatory standards for crashworthiness.'
+        'Optimized critical module latching features for extreme aviation environments.',
+        'Ensured full product certification under RTCA DO-160G standards.',
+        'Conducted advanced non-linear simulations for SSD/RAM retention integrity.',
+        'Supporting Airbus "Connected Aircraft" vision via strategic partnership.'
       ],
-      imageLabel: 'FEA Mesh Visualization'
+      imageLabel: 'Converix Platform Simulation'
     },
     {
-      title: 'Next-Gen In-Flight Entertainment (IFE)',
-      description: 'Structural optimization and design for high-density avionics enclosures. Focused on weight reduction while maintaining rigorous shock and vibration requirements.',
+      title: 'Astrova IFE System',
+      description: 'Industry-leading in-flight entertainment system selected by over 30 global airlines. Conducted comprehensive dynamic impact and vibration analysis for over 100 unique airline programs.',
       link: '#',
       span: '2x2',
-      tech: ['Ansys', 'Vibration Analysis', 'Avionics'],
+      tech: ['LS-Dyna', 'Dynamic Impact', 'SAE ARP6330A'],
       details: [
-        'Weight reduction of 20% achieved using topology optimization.',
-        'Ensured zero structural failures during DO-160G qualification testing.',
-        'Managed complex thermal-structural coupling for electronic cooling.'
+        'Validated dynamic impact characteristics for 100+ unique monitor configurations.',
+        'Contributed to the development of SAE ARP6330A and AIR6908A standards.',
+        'Performed modal, harmonic, and random vibration analysis for global deployment.'
       ]
     },
     {
-      title: 'Automotive Chassis Light-Weighting',
-      description: 'Structural optimization of body-in-white (BIW) components for an electric vehicle platform.',
+      title: 'Aircraft Seat Survivability',
+      description: 'FE modeling and non-linear dynamic simulation of aircraft seats for occupant survivability studies.',
       link: '#',
       span: '1x1',
-      tech: ['Altair HyperWorks', 'Automotive'],
+      tech: ['FAR 25.562', 'LS-Dyna'],
       details: [
-        'Reduced component mass by 12% without compromising torsional stiffness.'
+        'Ensured compliance with FAR 25.562 emergency landing regulations.',
+        'Simulated complex occupant-to-seat interactions during high-velocity impact.'
       ]
     },
     {
-      title: 'Avionics Enclosure Cooling',
-      description: 'Thermal-structural analysis of high-power avionics units for military aircraft.',
+      title: 'Avionics Enclosure Testing',
+      description: 'Specialized structural testing and FEA activities for Panasonic products from concept to certification.',
       link: '#',
       span: '1x1',
-      tech: ['Thermal Simulation', 'Avionics'],
+      tech: ['Structural Testing', 'FEA'],
       details: [
-        'Optimized heat sink geometry for 30% improved heat dissipation.'
+        'Executed 3PT-4PT bend tests, tensile, and compressive structural testing.'
       ]
     },
     {
-      title: 'AI Workflow Automation',
-      description: 'Python-based automation for structural analysis reporting and design validation.',
+      title: 'CAE Workflow Management',
+      description: 'Leading CAE teams in high-fidelity model generation and non-linear simulation for full assembly models.',
       link: '#',
       span: '1x1',
-      tech: ['Python', 'Automation', 'LLMs'],
+      tech: ['HyperWorks', 'Team Lead'],
       details: [
-        'Automated 80% of routine report generation tasks using custom scripts.'
+        'Coordinated between test engineers and CAE analysts for certification reporting.'
       ]
     },
   ];

@@ -4,7 +4,7 @@ const Skills = () => {
   const skillCategories = [
     {
       title: 'Structural Analysis & CAE',
-      skills: ['Ansys', 'LS-Dyna', 'Altair HyperWorks', 'FEA', 'Non-linear Dynamics', 'Crashworthiness Analysis', 'Structural Optimization', 'Modal & Vibration Analysis', 'Fatigue & Fracture Mechanics', 'Thermal-Structural Coupling']
+      skills: ['Ansys', 'LS-Dyna', 'Altair HyperWorks', 'FEA', 'Non-linear Dynamics', 'Crashworthiness Analysis', 'Structural Optimization', 'Modal & Vibration Analysis', 'Fatigue & Fracture Mechanics', 'Thermal-Structural Coupling', 'RTCA DO-160G', 'FAR 25.562', 'SAE ARP6330A', 'SAE AIR6908A']
     },
     {
       title: 'Programming & Data',
