@@ -3,76 +3,71 @@ import React from 'react';
 interface Project {
   title: string;
   description: string;
-  link: string;
+  link?: string;
+  links?: { label: string; url: string }[];
   span: string;
   tech: string[];
   details?: string[];
-  imageLabel?: string;
-  images?: string[];
 }
 
 const Projects = () => {
   const projects: Project[] = [
     {
       title: 'Converix Platform Server',
-      description: 'Next-generation onboard compute solution designed for modern aviation. Focused on high-fidelity structural analysis for critical SSD/RAM module retention and metallic sub-assemblies.',
-      link: '#',
+      description: 'Next-generation onboard compute solution for high-demand environments. Focused on structural analysis for critical SSD/RAM module retention and metallic sub-assemblies.',
+      links: [
+        { label: 'PRESS_RELEASE', url: 'https://www.panasonic.aero/press/panasonic-avionics-introduces-converix' },
+        { label: 'AIRBUS_PARTNERSHIP', url: 'https://www.aircraft.airbus.com/en/newsroom/web-story/2025-04-airbus-and-panasonic-avionics-to-co-develop-the-future-connected' },
+        { label: 'AIX_LAUNCH', url: 'https://economyclassandbeyond.boardingarea.com/2025/04/09/aix25-panasonic-avionics-launches-its-new-onboard-server-converix/' }
+      ],
       span: '2x2',
-      tech: ['Ansys', 'RTCA DO-160G', 'Module Retention'],
+      tech: ['Ansys', 'RTCA DO-160G', 'ARINC 600'],
       details: [
         'Optimized critical module latching features for extreme aviation environments.',
-        'Ensured full product certification under RTCA DO-160G standards.',
+        'Ensured full product certification under RTCA DO-160G and ARINC 600 standards.',
         'Conducted advanced non-linear simulations for SSD/RAM retention integrity.',
-        'Supporting Airbus "Connected Aircraft" vision via strategic partnership.'
-      ],
-      imageLabel: 'Converix Platform Simulation',
-      images: ['/images/converix-1.png', '/images/converix-2.png']
+        'Architected AI-driven Python programs for certification automation.'
+      ]
     },
     {
       title: 'Astrova IFE System',
-      description: 'Industry-leading in-flight entertainment system selected by over 30 global airlines. Conducted comprehensive dynamic impact and vibration analysis for over 100 unique airline programs.',
-      link: '#',
+      description: 'Panasonic flagship in-flight entertainment system resulting in selection by over 30 global airlines for 100+ unique programs.',
+      links: [
+        { label: 'PRESS_RELEASE', url: 'https://runwaygirlnetwork.com/2023/07/panasonic-avionics-astrova-ife/' },
+        { label: 'LAUNCH_DETAILS', url: 'https://www.youtube.com/watch?v=RWbhr_Yp9Xk' },
+        { label: 'JOURNEY_OF_ASTROVA', url: 'https://www.youtube.com/watch?si=E2mt1jvpjhVmt1_p&v=N6XhQ6HfhpU&feature=youtu.be' },
+        { label: 'HISTORIC_MILESTONE', url: 'https://www.panasonic.aero/press/astrova-achieves-historic-milestone-with-one-hundredth-airline-program' }
+      ],
       span: '2x2',
       tech: ['LS-Dyna', 'Dynamic Impact', 'SAE ARP6330A'],
       details: [
         'Validated dynamic impact characteristics for 100+ unique monitor configurations.',
-        'Contributed to the development of SAE ARP6330A and AIR6908A standards.',
-        'Performed modal, harmonic, and random vibration analysis for global deployment.'
-      ],
-      imageLabel: 'Astrova IFE Simulation',
-      images: ['/images/astrova-1.png', '/images/astrova-2.png', '/images/astrova-3.png']
+        'Authored and contributed to SAE ARP6330A and AIR6908A industry standards.',
+        'Performed complex vibration analysis (Modal, Harmonic, Random) in Ansys.'
+      ]
     },
     {
       title: 'Aircraft Seat Survivability',
-      description: 'FE modeling and non-linear dynamic simulation of aircraft seats for occupant survivability studies.',
+      description: 'High-fidelity FE modeling of aircraft seating to satisfy emergency landing regulations, impacting occupant survivability research.',
       link: '#',
       span: '1x1',
       tech: ['FAR 25.562', 'LS-Dyna'],
       details: [
         'Ensured compliance with FAR 25.562 emergency landing regulations.',
-        'Simulated complex occupant-to-seat interactions during high-velocity impact.'
+        'Simulated full-scale aircraft assembly crashworthiness models.'
       ]
     },
     {
-      title: 'Avionics Enclosure Testing',
-      description: 'Specialized structural testing and FEA activities for Panasonic products from concept to certification.',
+      title: 'AI Automation for FEA',
+      description: 'Suite of Python programs utilizing AI to automate repetitive FEA and numerical calculation tasks.',
       link: '#',
       span: '1x1',
-      tech: ['Structural Testing', 'FEA'],
+      tech: ['Python', 'AI/LLM', 'Automation'],
       details: [
-        'Executed 3PT-4PT bend tests, tensile, and compressive structural testing.'
+        'Saving 300+ man-hours annually for certification tasks.',
+        'Accelerated certification for the Converix platform server.'
       ]
-    },
-    {
-      title: 'CAE Workflow Management',
-      description: 'Leading CAE teams in high-fidelity model generation and non-linear simulation for full assembly models.',
-      link: '#',
-      span: '1x1',
-      tech: ['HyperWorks', 'Team Lead'],
-      details: [
-        'Coordinated between test engineers and CAE analysts for certification reporting.'
-      ]
-    },
+    }
   ];
 
   return (
@@ -97,40 +92,27 @@ const Projects = () => {
                 </ul>
               )}
 
-              {project.images ? (
-                <div 
-                  className="fea-viewport images-grid" 
-                  style={{ gridTemplateColumns: `repeat(${project.images.length}, 1fr)` }}
-                >
-                  {project.images.map((img, i) => (
-                    <div key={i} className="viewport-image-container">
-                      <img src={img} alt={`Simulation ${i + 1}`} className="viewport-image" />
-                    </div>
-                  ))}
-                </div>
-              ) : project.imageLabel && (
-                <div className="fea-viewport">
-                  <div className="viewport-grid"></div>
-                  <span className="mono viewport-label">{project.imageLabel}</span>
-                </div>
-              )}
-
               <div className="project-footer">
                 <div className="tech-tags">
                   {project.tech.slice(1).map((t, i) => (
                     <span key={i} className="tech-tag mono">{t}</span>
                   ))}
                 </div>
-                <a href={project.link} className="project-link mono">DATA_REPORT_01 →</a>
+                <div className="project-links">
+                  {project.links ? (
+                    project.links.map((link, i) => (
+                      <a key={i} href={link.url} className="project-link mono">{link.label} →</a>
+                    ))
+                  ) : (
+                    <a href={project.link} className="project-link mono">DATA_REPORT →</a>
+                  )}
+                </div>
               </div>
             </div>
           </div>
         ))}
       </div>
       <style>{`
-        .projects-section {
-          padding: 6rem 0;
-        }
         .projects-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
@@ -189,68 +171,6 @@ const Projects = () => {
           color: var(--accent-color);
           font-weight: 800;
         }
-        .fea-viewport {
-          background: var(--bg-color);
-          border: 1px solid var(--border-color);
-          border-radius: 4px;
-          height: 280px;
-          margin-bottom: 2.5rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          overflow: hidden;
-        }
-        .images-grid {
-          display: grid;
-          gap: 1rem;
-          padding: 1rem;
-          width: 100%;
-          height: 100%;
-        }
-        .viewport-image-container {
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          background: transparent;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .viewport-image {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          border-radius: 2px;
-        }
-        .viewport-label.overlay {
-          position: absolute;
-          bottom: 12px;
-          left: 12px;
-          background: rgba(248, 250, 252, 0.9);
-          color: var(--text-primary);
-          padding: 4px 8px;
-          border: 1px solid var(--border-color);
-          pointer-events: none;
-          font-size: 0.65rem;
-        }
-        .viewport-grid {
-          position: absolute;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background-image: 
-            linear-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(56, 189, 248, 0.1) 1px, transparent 1px);
-          background-size: 20px 20px;
-        }
-        .viewport-label {
-          font-size: 0.7rem;
-          font-weight: 700;
-          color: #38BDF8;
-          text-transform: uppercase;
-          letter-spacing: 0.2em;
-          z-index: 1;
-        }
         .project-footer {
           margin-top: auto;
           display: flex;
@@ -258,6 +178,8 @@ const Projects = () => {
           align-items: center;
           padding-top: 2rem;
           border-top: 1px solid var(--border-color);
+          flex-wrap: wrap;
+          gap: 1rem;
         }
         .tech-tags {
           display: flex;
@@ -273,8 +195,13 @@ const Projects = () => {
           color: var(--text-muted);
           font-weight: 600;
         }
+        .project-links {
+          display: flex;
+          gap: 1.5rem;
+          flex-wrap: wrap;
+        }
         .project-link {
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           font-weight: 700;
           color: var(--highlight-color);
           letter-spacing: 0.05em;
@@ -292,7 +219,10 @@ const Projects = () => {
           .project-footer {
             flex-direction: column;
             align-items: flex-start;
-            gap: 1.5rem;
+          }
+          .project-links {
+            flex-direction: column;
+            gap: 0.75rem;
           }
         }
       `}</style>

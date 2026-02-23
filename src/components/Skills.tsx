@@ -3,16 +3,20 @@ import React from 'react';
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Structural Analysis & CAE',
-      skills: ['Ansys', 'LS-Dyna', 'Altair HyperWorks', 'FEA', 'Non-linear Dynamics', 'Crashworthiness Analysis', 'Structural Optimization', 'Modal & Vibration Analysis', 'Fatigue & Fracture Mechanics', 'Thermal-Structural Coupling', 'RTCA DO-160G', 'FAR 25.562', 'SAE ARP6330A', 'SAE AIR6908A']
+      title: 'Finite Element Analysis & Core Skills',
+      skills: ['Ansys Workbench', 'LS-Dyna', 'HyperWorks', 'Optistruct', 'SimLab', 'Stress Analysis', 'Mechanics of Materials', 'Vibration (Modal, Harmonic, Random)', 'Mass Optimization', 'Multiphysics']
     },
     {
-      title: 'Programming & Data',
-      skills: ['Python', 'Large Language Models', 'Data Analysis', 'Automation Scripts', 'Version Control (Git)']
+      title: 'Automation & LLMs',
+      skills: ['Python (Pandas, NumPy)', 'Machine Learning', 'Pattern Recognition', 'API Integration', 'Computer Vision', 'Scripted Meshing', 'Gemini (and CLI)', 'ChatGPT', 'Claude']
     },
     {
-      title: 'Industry & Design',
-      skills: ['Aerospace Engineering', 'Avionics', 'Automotive Engineering', 'Product Development Lifecycle', 'Technical Documentation', 'Design Reviews']
+      title: 'Standards & Industry',
+      skills: ['RTCA DO-160G', 'FAR 25.562', 'SAE ARP6330', 'ASTM Standards', 'AS9100', 'MIL-STD-810H', 'Aerospace Engineering', 'Avionics', 'Automotive Engineering']
+    },
+    {
+      title: 'Leadership & Methodology',
+      skills: ['Engineering Mentorship', 'Product Development', 'Resource Planning', 'Design Reviews (PDR/CDR)', 'Root-Cause Analysis', 'Requirements Traceability', 'Cross-functional Collaboration']
     }
   ];
 
@@ -34,9 +38,6 @@ const Skills = () => {
         ))}
       </div>
       <style>{`
-        .skills-section {
-          padding: 4rem 0;
-        }
         .skills-grid {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
@@ -53,7 +54,6 @@ const Skills = () => {
           grid-column: span 2;
         }
         .category-title {
-          font-size: 0.875rem;
           color: var(--accent-color);
           margin-bottom: 2rem;
           text-transform: uppercase;

@@ -6,31 +6,27 @@ const About = () => {
       <h2 className="section-title">PROFESSIONAL SUMMARY</h2>
       <div className="about-content">
         <p className="about-summary">
-          Lead Structural Analyst with a distinguished background in the aerospace, avionics, and automotive industries. I specialize in accelerating product development cycles by integrating cutting-edge Finite Element Analysis (FEA) with conventional analytical methods to support complex design initiatives.
+          Lead Structural Analyst with <span className="highlight-text">10+ years of experience</span> driving product certification for industry-leading aerospace and automotive systems. Expert in <span className="mono bold-text">Finite Element Analysis (FEA)</span> specializing in accelerating development cycles through high-fidelity simulations and conventional hand calculations.
         </p>
         <div className="about-details">
           <div className="about-item">
             <span className="about-bullet mono">→</span>
-            <p>Proven success in leading high-stakes projects, such as analysis of industry-leading In-Flight Entertainment (IFE) devices and full-scale Crashworthiness analysis of aircraft.</p>
+            <p>Proven track record of steering complex projects, including the <span className="mono bold-text">Astrova system (100+ programs)</span> from initial concept to global regulatory compliance.</p>
           </div>
           <div className="about-item">
             <span className="about-bullet mono">→</span>
-            <p>Expert in the <span className="mono bold-text">Ansys suite, HyperWorks, and LS-Dyna</span> for non-linear explicit dynamics, linear static structural, and random vibration analysis.</p>
+            <p>Architected a suite of <span className="mono bold-text">Python programs utilizing AI</span> to automate repetitive FEA and numerical calculation tasks, saving <span className="highlight-text">300+ man-hours annually</span>.</p>
           </div>
           <div className="about-item">
             <span className="about-bullet mono">→</span>
-            <p>Dedicated to fostering a culture of technical excellence through rigorous verification standards and mentorship of engineering teams.</p>
+            <p>Expert in <span className="mono bold-text">Ansys Workbench, LS-Dyna, and HyperWorks</span> for non-linear explicit dynamics, linear static structural, and random vibration analysis.</p>
           </div>
         </div>
       </div>
       <style>{`
-        .about-section {
-          padding: 6rem 0;
-        }
         .section-title {
           margin-bottom: 3rem;
           color: var(--accent-color);
-          font-size: 0.875rem;
           text-transform: uppercase;
           letter-spacing: 0.2em;
           font-weight: 800;

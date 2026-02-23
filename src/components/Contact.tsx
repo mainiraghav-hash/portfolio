@@ -26,10 +26,6 @@ const Contact = () => {
         </div>
       </div>
       <style>{`
-        .contact-section {
-          padding: 6rem 0;
-          border-bottom: none;
-        }
         .contact-tagline {
           font-size: 1.5rem;
           color: var(--text-primary);

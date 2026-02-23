@@ -4,38 +4,41 @@ const Experience = () => {
   const employers = [
     {
       company: 'Panasonic Avionics Corporation',
-      location: 'Irvine, CA',
+      location: 'Irvine, California',
       roles: [
         {
-          title: 'Senior Staff Structural Analyst, Level 4',
+          title: 'Senior Staff Structural Analyst (Level 4)',
           period: 'Jun 2024 - Present',
-          description: 'Leading structural analysis for next-generation onboard compute solutions (Converix). Ensuring product certification via RTCA DO-160G and mentoring engineering teams.',
+          points: [
+            'Spearheaded structural analysis for the Converix platform server, ensuring the next-generation onboard compute solution met rigorous standards for high-demand environments.',
+            'Optimized design using Ansys suite and conventional methods for critical SSD/RAM module retention components, metallic sub-assemblies, and module latching features (RTCA DO-160G, ARINC 600).',
+            'Mentored junior engineers on advanced simulation techniques such as non-linear explicit dynamics, linear static structural and random vibration.',
+            'Architected a suite of Python programs utilizing Artificial Intelligence to automate repetitive FEA and numerical calculation tasks, saving 300+ man-hours annually.'
+          ],
         },
         {
-          title: 'Staff Structural Analyst, Level 3',
-          period: 'Jun 2022 - Jun 2024',
-          description: 'Spearheaded structural analysis for Astrova IFE systems. Performed complex dynamic impact (LS-Dyna) and vibration analysis. Contributed to SAE industry standards.',
-        },
-        {
-          title: 'Staff Structural Analyst, Level 2',
-          period: 'Mar 2019 - Jun 2022',
-          description: 'Managed dynamic impact testing and certification for IFE monitors. Conducted comprehensive FEA including random vibration and harmonic analysis.',
+          title: 'Staff Structural Analyst (Levels 2 and 3)',
+          period: 'Mar 2019 - Jun 2024',
+          points: [
+            'Led the end-to-end structural analysis efforts for Astrova, Panasonic\'s flagship in-flight entertainment system, resulting in selection by over 30 global airlines for 100+ unique programs.',
+            'Performed dynamic impact analysis (HyperWorks, LS-Dyna), vibration analysis (Modal, Harmonic, Random Vibration in Ansys), and static structural analysis.',
+            'Authored and contributed to key industry standards (SAE ARP6330A and AIR6908A) regarding the impact characteristics of IFE monitors.',
+            'Designing and executing test plans for dynamic impact of IFE monitors from concept stages to certification.'
+          ],
         }
       ]
     },
     {
-      company: 'National Institute for Aviation Research',
-      location: 'Wichita, KS',
+      company: 'National Institute for Aviation Research (NIAR)',
+      location: 'Wichita, Kansas',
       roles: [
         {
-          title: 'Research Associate',
-          period: 'Jan 2018 - Mar 2019',
-          description: 'Led CAE team for full-assembly non-linear dynamic simulations. Focused on aircraft seat FE modeling for FAR 25.562 occupant survivability compliance.',
-        },
-        {
-          title: 'Graduate Research Assistant',
-          period: 'Apr 2016 - Dec 2017',
-          description: 'Executed linear and non-linear simulations using explicit/implicit solvers for high-fidelity aerospace structural integrity analysis.',
+          title: 'Research Associate and Graduate Research Assistant',
+          period: 'Apr 2016 - Mar 2019',
+          points: [
+            'Managed a CAE team of graduate and undergraduate engineers, overseeing model generation and non-linear dynamic simulations for full-scale aircraft assembly crashworthiness models.',
+            'Generated high-fidelity FE models for aircraft seating to satisfy FAR 25.562 emergency landing regulations, directly impacting occupant survivability research.'
+          ],
         }
       ]
     }
@@ -58,7 +61,11 @@ const Experience = () => {
                     <span className="role-title">{role.title}</span>
                     <span className="role-period mono highlight-text">{role.period}</span>
                   </div>
-                  <p className="role-description">{role.description}</p>
+                  <ul className="role-points">
+                    {role.points.map((point, pidx) => (
+                      <li key={pidx}>{point}</li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
@@ -67,9 +74,6 @@ const Experience = () => {
       </div>
 
       <style>{`
-        .experience-section {
-          padding: 4rem 0;
-        }
         .bento-grid {
           display: grid;
           grid-template-columns: 1fr;
@@ -119,7 +123,7 @@ const Experience = () => {
           display: flex;
           justify-content: space-between;
           align-items: baseline;
-          margin-bottom: 0.75rem;
+          margin-bottom: 1rem;
           gap: 1rem;
         }
         .role-title {
@@ -138,10 +142,25 @@ const Experience = () => {
         .role-period.highlight-text {
           color: var(--highlight-color);
         }
-        .role-description {
+        .role-points {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        .role-points li {
           font-size: 0.95rem;
           line-height: 1.6;
           color: var(--text-muted);
+          position: relative;
+          padding-left: 1.5rem;
+        }
+        .role-points li::before {
+          content: '•';
+          position: absolute;
+          left: 0;
+          color: var(--accent-color);
+          font-weight: bold;
         }
         
         @media (max-width: 768px) {

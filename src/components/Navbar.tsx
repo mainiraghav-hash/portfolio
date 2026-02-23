@@ -9,6 +9,7 @@ const Navbar = () => {
     { name: 'Professional Summary', href: '#about' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -17,7 +18,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = ['hero', 'about', 'experience', 'projects', 'skills', 'contact'];
+      const sections = ['hero', 'about', 'experience', 'projects', 'education', 'skills', 'contact'];
       let currentActive = 'hero';
 
       for (const sectionId of sections) {
