@@ -8,14 +8,14 @@ const Education = () => {
       school: "Wichita State University",
       location: "KS, United States",
       year: "2017",
-      thesis: "https://example.com/ms-thesis" // Placeholder for [thesis]
+      thesis: "https://soar.wichita.edu/entities/publication/4a92d9bb-7ff6-413f-908c-8f28a2c5b49d"
     },
     {
       degree: "Bachelor's (B.S.) in Aerospace Engineering",
       school: "UPES",
       location: "Dehradun, India",
       year: "2014",
-      thesis: "https://example.com/bs-thesis" // Placeholder for [thesis]
+      thesis: "https://www.researchgate.net/publication/305044094_Trajectory_Analysis_of_UPESSAT_-_A_CubeSat_Project"
     }
   ];
 
@@ -34,7 +34,7 @@ const Education = () => {
               <span className={`${styles.location} mono`}>{edu.location}</span>
             </div>
             <a href={edu.thesis} target="_blank" rel="noopener noreferrer" className={`${styles.thesisLink} mono`}>
-              VIEW_THESIS_0{idx + 1} →
+              VIEW_THESIS →
             </a>
           </div>
         ))}
