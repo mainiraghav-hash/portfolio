@@ -16,10 +16,6 @@ const About = () => {
           </div>
           <div className={styles.aboutItem}>
             <span className={`${styles.aboutBullet} mono`}>→</span>
-            <p>Architected a suite of <span className="mono bold-text">Python programs utilizing AI</span> to automate repetitive FEA and numerical calculation tasks, saving <span className={styles.highlightText}>300+ man-hours annually</span>.</p>
-          </div>
-          <div className={styles.aboutItem}>
-            <span className={`${styles.aboutBullet} mono`}>→</span>
             <p>Expert in <span className="mono bold-text">Ansys Workbench, LS-Dyna, and HyperWorks</span> for non-linear explicit dynamics, linear static structural, and random vibration analysis.</p>
           </div>
         </div>
