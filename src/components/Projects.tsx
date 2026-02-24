@@ -46,28 +46,6 @@ const Projects = () => {
         'Authored and contributed to SAE ARP6330A and AIR6908A industry standards.',
         'Performed complex vibration analysis (Modal, Harmonic, Random) in Ansys.'
       ]
-    },
-    {
-      title: 'Aircraft Seat Survivability',
-      description: 'High-fidelity FE modeling of aircraft seating to satisfy emergency landing regulations, impacting occupant survivability research.',
-      link: '#',
-      span: '1x1',
-      tech: ['FAR 25.562', 'LS-Dyna'],
-      details: [
-        'Ensured compliance with FAR 25.562 emergency landing regulations.',
-        'Simulated full-scale aircraft assembly crashworthiness models.'
-      ]
-    },
-    {
-      title: 'AI Automation for FEA',
-      description: 'Suite of Python programs utilizing AI to automate repetitive FEA and numerical calculation tasks.',
-      link: '#',
-      span: '1x1',
-      tech: ['Python', 'AI/LLM', 'Automation'],
-      details: [
-        'Saving 300+ man-hours annually for certification tasks.',
-        'Accelerated certification for the Converix platform server.'
-      ]
     }
   ];
 
