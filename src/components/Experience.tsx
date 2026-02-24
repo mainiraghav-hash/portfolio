@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Experience.module.css';
 
 const Experience = () => {
   const employers = [
@@ -45,23 +46,23 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="experience-section">
-      <h2 className="section-title">Work Experience</h2>
-      <div className="bento-grid">
+    <section id="experience" className={styles.experienceSection}>
+      <h2 className={styles.sectionTitle}>Work Experience</h2>
+      <div className={styles.bentoGrid}>
         {employers.map((employer, idx) => (
-          <div key={idx} className="bento-box tech-border">
-            <div className="box-header">
-              <h3 className="company-name">{employer.company}</h3>
-              <span className="location mono">{employer.location}</span>
+          <div key={idx} className={`${styles.bentoBox} tech-border`}>
+            <div className={styles.boxHeader}>
+              <h3 className={styles.companyName}>{employer.company}</h3>
+              <span className={`${styles.location} mono`}>{employer.location}</span>
             </div>
-            <div className="roles-list">
+            <div className={styles.rolesList}>
               {employer.roles.map((role, ridx) => (
-                <div key={ridx} className="role-item">
-                  <div className="role-header">
-                    <span className="role-title">{role.title}</span>
-                    <span className="role-period mono highlight-text">{role.period}</span>
+                <div key={ridx} className={styles.roleItem}>
+                  <div className={styles.roleHeader}>
+                    <span className={styles.roleTitle}>{role.title}</span>
+                    <span className={`${styles.rolePeriod} mono ${styles.highlightText}`}>{role.period}</span>
                   </div>
-                  <ul className="role-points">
+                  <ul className={styles.rolePoints}>
                     {role.points.map((point, pidx) => (
                       <li key={pidx}>{point}</li>
                     ))}
@@ -72,108 +73,6 @@ const Experience = () => {
           </div>
         ))}
       </div>
-
-      <style>{`
-        .bento-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 2rem;
-          margin-top: 2rem;
-        }
-        .bento-box {
-          background: var(--bg-color);
-          border: 1px solid var(--border-color);
-          border-radius: 4px;
-          padding: 2.5rem;
-          transition: var(--transition);
-        }
-        .bento-box:hover {
-          border-color: var(--accent-color);
-        }
-        .box-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: baseline;
-          margin-bottom: 2rem;
-          border-bottom: 1px solid var(--border-color);
-          padding-bottom: 1rem;
-        }
-        .company-name {
-          font-size: 1.5rem;
-          font-weight: 800;
-          color: var(--text-primary);
-          letter-spacing: -0.04em;
-        }
-        .location {
-          font-size: 0.75rem;
-          color: var(--text-muted);
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          font-weight: 700;
-        }
-        .roles-list {
-          display: flex;
-          flex-direction: column;
-          gap: 2.5rem;
-        }
-        .role-item {
-          position: relative;
-        }
-        .role-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: baseline;
-          margin-bottom: 1rem;
-          gap: 1rem;
-        }
-        .role-title {
-          font-weight: 700;
-          font-size: 1.1rem;
-          color: var(--text-primary);
-        }
-        .role-period {
-          font-size: 0.75rem;
-          color: var(--text-muted);
-          white-space: nowrap;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-        }
-        .role-period.highlight-text {
-          color: var(--highlight-color);
-        }
-        .role-points {
-          list-style: none;
-          display: flex;
-          flex-direction: column;
-          gap: 0.75rem;
-        }
-        .role-points li {
-          font-size: 0.95rem;
-          line-height: 1.6;
-          color: var(--text-muted);
-          position: relative;
-          padding-left: 1.5rem;
-        }
-        .role-points li::before {
-          content: '•';
-          position: absolute;
-          left: 0;
-          color: var(--accent-color);
-          font-weight: bold;
-        }
-        
-        @media (max-width: 768px) {
-          .box-header, .role-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.25rem;
-          }
-          .role-period {
-            margin-bottom: 0.5rem;
-          }
-        }
-      `}</style>
     </section>
   );
 };

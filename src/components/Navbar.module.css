@@ -1,0 +1,169 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 0 2rem;
+  background: transparent;
+}
+
+.scrolled {
+  height: 64px;
+  background: rgba(248, 250, 252, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbarContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbarLogo a {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 0.1em;
+  z-index: 1100;
+}
+
+.navbarLinks {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.navbarLinks a {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbarLinks a:hover,
+.navbarLinks a.active {
+  color: var(--accent-color);
+}
+
+.navbarLinks a.active::after {
+  content: ' ●';
+  position: absolute;
+  right: -8px;
+  font-size: 8px;
+  top: 0;
+}
+
+.navbarHamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1100;
+}
+
+.hamburgerBox {
+  width: 24px;
+  height: 18px;
+  position: relative;
+}
+
+.hamburgerInner,
+.hamburgerInner::before,
+.hamburgerInner::after {
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-primary);
+  position: absolute;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.hamburgerInner {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburgerInner::before {
+  content: "";
+  top: -8px;
+}
+
+.hamburgerInner::after {
+  content: "";
+  top: 8px;
+}
+
+.menuOpen .hamburgerInner {
+  background-color: transparent;
+}
+
+.menuOpen .hamburgerInner::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menuOpen .hamburgerInner::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-color);
+  z-index: 1050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.mobileMenuLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.mobileMenuLinks a {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: color 0.3s ease;
+}
+
+.mobileMenuLinks a:hover,
+.mobileMenuLinks a.active {
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .desktopOnly {
+    display: none;
+  }
+  .navbarHamburger {
+    display: block;
+  }
+}

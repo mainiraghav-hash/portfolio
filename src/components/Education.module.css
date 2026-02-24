@@ -1,0 +1,90 @@
+.educationSection {
+  padding: var(--space-12) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sectionTitle {
+  margin-bottom: 3rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 800;
+}
+
+.educationGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.educationCard {
+  padding: 2.5rem;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.educationCard:hover {
+  border-color: var(--accent-color);
+}
+
+.eduHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.degreeTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+.eduYear {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.eduDetails {
+  margin-bottom: 2.5rem;
+}
+
+.schoolName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.location {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.thesisLink {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-color);
+  letter-spacing: 0.05em;
+  margin-top: auto;
+}
+
+.highlightText {
+  color: var(--highlight-color);
+}
+
+@media (max-width: 768px) {
+  .educationGrid {
+    grid-template-columns: 1fr;
+  }
+}

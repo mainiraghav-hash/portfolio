@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Projects.module.css';
 
 interface Project {
   title: string;
@@ -71,40 +72,40 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="projects-section">
-      <h2 className="section-title">Key Projects</h2>
-      <div className="projects-grid">
+    <section id="projects" className={styles.projectsSection}>
+      <h2 className={styles.sectionTitle}>Key Projects</h2>
+      <div className={styles.projectsGrid}>
         {projects.map((project, index) => (
           <div 
             key={index} 
-            className={`project-card tech-border ${project.span === '2x2' ? 'span-2x2' : 'span-1x1'}`}
+            className={`${styles.projectCard} tech-border ${project.span === '2x2' ? styles.span2x2 : styles.span1x1}`}
           >
-            <div className="project-content">
-              <span className="mono tech-badge highlight-text">{project.tech[0]}</span>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-description">{project.description}</p>
+            <div className={styles.projectContent}>
+              <span className={`mono ${styles.techBadge} ${styles.highlightText}`}>{project.tech[0]}</span>
+              <h3 className={styles.projectTitle}>{project.title}</h3>
+              <p className={styles.projectDescription}>{project.description}</p>
               
               {project.details && (
-                <ul className="details-list">
+                <ul className={styles.detailsList}>
                   {project.details.map((detail, i) => (
                     <li key={i}>{detail}</li>
                   ))}
                 </ul>
               )}
 
-              <div className="project-footer">
-                <div className="tech-tags">
+              <div className={styles.projectFooter}>
+                <div className={styles.techTags}>
                   {project.tech.slice(1).map((t, i) => (
-                    <span key={i} className="tech-tag mono">{t}</span>
+                    <span key={i} className={`${styles.techTag} mono`}>{t}</span>
                   ))}
                 </div>
-                <div className="project-links">
+                <div className={styles.projectLinks}>
                   {project.links ? (
                     project.links.map((link, i) => (
-                      <a key={i} href={link.url} className="project-link mono">{link.label} →</a>
+                      <a key={i} href={link.url} className={`${styles.projectLink} mono`}>{link.label} →</a>
                     ))
                   ) : (
-                    <a href={project.link} className="project-link mono">DATA_REPORT →</a>
+                    <a href={project.link} className={`${styles.projectLink} mono`}>DATA_REPORT →</a>
                   )}
                 </div>
               </div>
@@ -112,120 +113,6 @@ const Projects = () => {
           </div>
         ))}
       </div>
-      <style>{`
-        .projects-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 2rem;
-        }
-        .project-card {
-          background: var(--bg-color);
-          border: 1px solid var(--border-color);
-          border-radius: 4px;
-          padding: 2.5rem;
-          transition: var(--transition);
-        }
-        .project-card:hover {
-          border-color: var(--accent-color);
-          transform: translateY(-4px);
-        }
-        .span-2x2 {
-          grid-column: span 2;
-        }
-        .tech-badge {
-          font-size: 0.75rem;
-          font-weight: 700;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          margin-bottom: 1.5rem;
-          display: block;
-        }
-        .project-title {
-          font-size: 1.75rem;
-          margin-bottom: 1rem;
-          font-weight: 800;
-          letter-spacing: -0.04em;
-        }
-        .project-description {
-          font-size: 1rem;
-          line-height: 1.6;
-          color: var(--text-primary);
-          margin-bottom: 2rem;
-          font-weight: 500;
-        }
-        .details-list {
-          list-style: none;
-          margin-bottom: 2.5rem;
-          font-size: 0.9375rem;
-          color: var(--text-muted);
-        }
-        .details-list li {
-          margin-bottom: 0.75rem;
-          position: relative;
-          padding-left: 1.5rem;
-        }
-        .details-list li::before {
-          content: '↳';
-          position: absolute;
-          left: 0;
-          color: var(--accent-color);
-          font-weight: 800;
-        }
-        .project-footer {
-          margin-top: auto;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding-top: 2rem;
-          border-top: 1px solid var(--border-color);
-          flex-wrap: wrap;
-          gap: 1rem;
-        }
-        .tech-tags {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.75rem;
-        }
-        .tech-tag {
-          font-size: 0.7rem;
-          padding: 0.25rem 0.6rem;
-          background: var(--bg-color);
-          border: 1px solid var(--border-color);
-          border-radius: 2px;
-          color: var(--text-muted);
-          font-weight: 600;
-        }
-        .project-links {
-          display: flex;
-          gap: 1.5rem;
-          flex-wrap: wrap;
-        }
-        .project-link {
-          font-size: 0.7rem;
-          font-weight: 700;
-          color: var(--highlight-color);
-          letter-spacing: 0.05em;
-        }
-        .highlight-text {
-          color: var(--highlight-color);
-        }
-        @media (max-width: 768px) {
-          .projects-grid {
-            grid-template-columns: 1fr;
-          }
-          .span-2x2 {
-            grid-column: span 1;
-          }
-          .project-footer {
-            flex-direction: column;
-            align-items: flex-start;
-          }
-          .project-links {
-            flex-direction: column;
-            gap: 0.75rem;
-          }
-        }
-      `}</style>
     </section>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Skills.module.css';
 
 const Skills = () => {
   const skillCategories = [
@@ -21,15 +22,15 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="skills-section">
-      <h2 className="section-title">Technical Expertise</h2>
-      <div className="skills-grid">
+    <section id="skills" className={styles.skillsSection}>
+      <h2 className={styles.sectionTitle}>Technical Expertise</h2>
+      <div className={styles.skillsGrid}>
         {skillCategories.map((category, index) => (
-          <div key={index} className="skill-category tech-border">
-            <h3 className="category-title">{category.title}</h3>
-            <ul className="skills-list">
+          <div key={index} className={`${styles.skillCategory} tech-border`}>
+            <h3 className={styles.categoryTitle}>{category.title}</h3>
+            <ul className={styles.skillsList}>
               {category.skills.map((skill, i) => (
-                <li key={i} className="skill-tag mono">
+                <li key={i} className={`${styles.skillTag} mono`}>
                   {skill}
                 </li>
               ))}
@@ -37,59 +38,6 @@ const Skills = () => {
           </div>
         ))}
       </div>
-      <style>{`
-        .skills-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1.5rem;
-          margin-top: 2rem;
-        }
-        .skill-category {
-          padding: 2rem;
-          background: var(--bg-color);
-          border: 1px solid var(--border-color);
-          border-radius: 4px;
-        }
-        .skill-category:nth-child(1) {
-          grid-column: span 2;
-        }
-        .category-title {
-          color: var(--accent-color);
-          margin-bottom: 2rem;
-          text-transform: uppercase;
-          letter-spacing: 0.15em;
-          font-weight: 800;
-        }
-        .skills-list {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.75rem;
-          list-style: none;
-        }
-        .skill-tag {
-          font-size: 0.8125rem;
-          padding: 0.5rem 1rem;
-          background-color: var(--bg-color);
-          border: 1px solid var(--border-color);
-          border-radius: 2px;
-          color: var(--text-primary);
-          transition: var(--transition);
-          font-weight: 500;
-        }
-        .skill-tag:hover {
-          border-color: var(--accent-color);
-          color: var(--accent-color);
-          background: rgba(2, 132, 199, 0.05);
-        }
-        @media (max-width: 768px) {
-          .skills-grid {
-            grid-template-columns: 1fr;
-          }
-          .skill-category:nth-child(1) {
-            grid-column: span 1;
-          }
-        }
-      `}</style>
     </section>
   );
 };

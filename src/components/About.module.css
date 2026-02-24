@@ -1,0 +1,59 @@
+.aboutSection {
+  padding: var(--space-12) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sectionTitle {
+  margin-bottom: 3rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 800;
+}
+
+.aboutContent {
+  max-width: 900px;
+}
+
+.aboutSummary {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+.aboutDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.aboutItem {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.aboutBullet {
+  color: var(--accent-color);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.aboutItem p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.boldText {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.highlightText {
+  color: var(--highlight-color);
+  font-weight: 700;
+  padding: 0 4px;
+}

@@ -1,0 +1,60 @@
+.contactSection {
+  padding: var(--space-12) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sectionTitle {
+  margin-bottom: 3rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 800;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.contactTagline {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  max-width: 600px;
+  margin-bottom: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.4;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contactLink {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: var(--transition);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  width: fit-content;
+}
+
+.contactLink:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateX(4px);
+}
+
+.linkLabel {
+  color: var(--highlight-color);
+  font-weight: 800;
+}
+
+.linkValue {
+  color: var(--text-primary);
+}
