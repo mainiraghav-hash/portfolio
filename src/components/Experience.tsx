@@ -11,10 +11,10 @@ const Experience = () => {
           title: 'Senior Staff Structural Analyst (Level 4)',
           period: 'Jun 2024 - Present',
           points: [
-            'Spearheaded structural analysis for the Converix platform server, ensuring the next-generation onboard compute solution met rigorous standards for high-demand environments.',
-            'Optimized design using Ansys suite and conventional methods for critical SSD/RAM module retention components, metallic sub-assemblies, and module latching features (RTCA DO-160G, ARINC 600).',
-            'Mentored junior engineers on advanced simulation techniques such as non-linear explicit dynamics, linear static structural and random vibration.',
-            'Architected a suite of Python programs utilizing Artificial Intelligence to automate repetitive FEA and numerical calculation tasks, saving 300+ man-hours annually.'
+            <>Owned system-level structural analysis for the Converix platform server, ensuring the next-generation onboard compute solution met rigorous standards for high-demand environments. <a href="https://www.panasonic.aero/press/panasonic-avionics-introduces-converix">[press release]</a> <a href="https://www.aircraft.airbus.com/en/newsroom/web-story/2025-04-airbus-and-panasonic-avionics-to-co-develop-the-future-connected">[airbus partnership]</a> <a href="https://economyclassandbeyond.boardingarea.com/2025/04/09/aix25-panasonic-avionics-launches-its-new-onboard-server-converix/">[AIX launch]</a></>,
+            'Worked with cross-functional teams to optimize design using FEA for critical SSD/RAM module retention components, metallic chassis, and module latching features ensuring product certification (RTCA DO-160G)',
+            'Mentored junior engineers on advanced simulation techniques such as non-linear explicit dynamics, linear static structural and random vibration, fostering a culture of technical excellence and rigorous verification standards.',
+            'Architected a suite of Python programs utilizing Artificial Intelligence to automate repetitive FEA and numerical calculation tasks, saving 300+ man-hours annually and accelerating certification for the Converix platform.'
           ],
         },
         {
