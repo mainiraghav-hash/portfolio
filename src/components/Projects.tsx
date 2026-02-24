@@ -22,7 +22,7 @@ const Projects = () => {
         { label: 'AIX_LAUNCH', url: 'https://economyclassandbeyond.boardingarea.com/2025/04/09/aix25-panasonic-avionics-launches-its-new-onboard-server-converix/' }
       ],
       span: '2x2',
-      tech: ['Ansys', 'RTCA DO-160G', 'ARINC 600'],
+      tech: ['Ansys'],
       details: [
         'Optimized critical module latching features for extreme aviation environments.',
         'Ensured full product certification under RTCA DO-160G and ARINC 600 standards.',
@@ -40,7 +40,7 @@ const Projects = () => {
         { label: 'HISTORIC_MILESTONE', url: 'https://www.panasonic.aero/press/astrova-achieves-historic-milestone-with-one-hundredth-airline-program' }
       ],
       span: '2x2',
-      tech: ['LS-Dyna', 'Dynamic Impact', 'SAE ARP6330A'],
+      tech: ['LS-Dyna'],
       details: [
         'Validated dynamic impact characteristics for 100+ unique monitor configurations.',
         'Authored and contributed to SAE ARP6330A and AIR6908A industry standards.',
